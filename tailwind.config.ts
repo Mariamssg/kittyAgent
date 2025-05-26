@@ -22,7 +22,8 @@ const config: Config = {
       blue: colors.blue,
       red: '#ff0000',
       simliblue: '#0000ff',
-      simligray: '#111111'
+      simligray: '#111111',
+      pink: colors.pink
     },
     extend: {
       fontFamily: {

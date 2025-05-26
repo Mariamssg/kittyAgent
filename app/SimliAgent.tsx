@@ -35,22 +35,16 @@ const SimliAgent: React.FC<SimliAgentProps> = ({ onStart, onClose }) => {
     // 3- PASTE YOUR CODE OUTPUT FROM SIMLI BELOW 👇
     /**********************************/
 
-    const response = await fetch("https://api.simli.ai/startE2ESession", {
-      method: "POST",
+    const response = await fetch("https://api.simli.ai/session/d0e23405-6b65-48d5-a757-c57527feef95/gAAAAABoNCoT-iVMlpeEntTHbicgeXcZWJ3iAK5gBzt1B4S1GsU9Xm40yzI9qEFCmjV5qnzTFrpRjBaPHC8GppKgysEPnmkY0lesuCpZMNG-kvj2O0-xvwsg425glxjYztqz4rQlUNToqAWR_j6vYzFbv7KZ0i75ao6gnal9-qjzqndi5ryj-0hFiPy-VlVe0BLbgO1O-_mt4Npqbh7yV3by71DOQV8bfP_WvUWZyYX3vph2ZQ9mX1_XpeeU48QATAXNfEVaba17mOwSM8VSmUE02BPoYX5G6zt4mS1b5ah2D-lUhzImVJGUR7FJ7C3uCqJDh0W7VYWhQxrj6z1MWD8q-rgJLnqDhMX63OOaT6ID6e3ZZ6ck2uXMPd7w5iOZ4fshYMEMQ_KwOvZovT4d46QD-KLntj1jzg==", {
+      method: "GET",
       headers: {
-        "Content-Type": "application/json",
+          "Content-Type": "application/json",
+          "Accept": "application/json",
       },
-      body: JSON.stringify({
-        apiKey: SIMLI_API_KEY,
-        faceId: "",
-        voiceId: "",
-        firstMessage: "",
-        systemPrompt: "",
-      }),
-    });
-
-    const data = await response.json();
-    const roomUrl = data.roomUrl;
+  })
+  
+  const data = await response.json();
+  const roomUrl = data.roomUrl;
 
     /**********************************/
     
@@ -146,16 +140,13 @@ const SimliAgent: React.FC<SimliAgentProps> = ({ onStart, onClose }) => {
           <button
             onClick={handleJoinRoom}
             disabled={isLoading}
-            className={cn(
-              "w-full h-[52px] mt-4 disabled:bg-[#343434] disabled:text-white disabled:hover:rounded-[100px] bg-simliblue text-white py-3 px-6 rounded-[100px] transition-all duration-300 hover:text-black hover:bg-white hover:rounded-sm",
-              "flex justify-center items-center"
-            )}
+            className="w-full h-[52px] mt-4 disabled:bg-[#343434] disabled:text-white disabled:hover:rounded-[100px] bg-white text-pink-500 border border-pink-500 py-3 px-6 rounded-[100px] transition-all duration-300 hover:text-black hover:bg-pink-50 hover:rounded-sm flex justify-center items-center"
           >
             {isLoading ? (
               <IconSparkleLoader className="h-[20px] animate-loader" />
             ) : (
               <span className="font-abc-repro-mono font-bold w-[164px]">
-                Test Interaction
+                Test Integration
               </span>
             )}
           </button>
